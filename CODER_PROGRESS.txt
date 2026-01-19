@@ -1,0 +1,22 @@
+# Coder Progress
+
+## Session Info
+- Started: YYYY-MM-DD HH:MM:SS
+- Iteration: 0
+- Status: NOT_STARTED
+
+## Features Implemented
+
+| Feature ID | Description | Tests | Status |
+|------------|-------------|-------|--------|
+
+## Test Results Summary
+
+```
+Tests: X passed, Y failed
+Coverage: Z%
+```
+
+## Blockers
+
+## Next Steps

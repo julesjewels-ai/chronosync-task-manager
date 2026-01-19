@@ -1,18 +1,37 @@
-.PHONY: install run test clean
+.PHONY: help install lint format test coverage build clean
 
-venv:
-	python3 -m venv venv
+help:
+	@echo "Available targets:"
+	@echo "  make install  - Install dependencies"
+	@echo "  make lint     - Run linting"
+	@echo "  make format   - Format code"
+	@echo "  make test     - Run tests"
+	@echo "  make coverage - Run tests with coverage"
+	@echo "  make build    - Build package"
 
-install: venv
-	./venv/bin/pip install -r requirements.txt
+install:
+	pip install -r requirements.txt
+	pip install ruff black isort pytest pytest-cov
 
-run:
-	./venv/bin/python main.py --energy 8
+lint:
+	@echo "Running ruff..."
+	ruff check src/ tests/ --fix || ruff check src/ tests/
+
+format:
+	black src/ tests/
+	isort src/ tests/
 
 test:
-	./venv/bin/pytest
+	pytest tests/ -v --tb=short
+
+coverage:
+	pytest tests/ -v --cov=src --cov-report=term-missing
+
+coverage-check:
+	pytest tests/ --cov=src --cov-fail-under=80
+
+build:
+	@if [ -f "pyproject.toml" ]; then python -m build; else python -c "import src"; fi
 
 clean:
-	rm -rf venv
-	find . -type f -name '*.pyc' -delete
-	find . -type d -name '__pycache__' -delete
+	rm -rf build/ dist/ *.egg-info/ .pytest_cache/ .coverage htmlcov/

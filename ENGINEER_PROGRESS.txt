@@ -1,0 +1,14 @@
+# Engineer Progress
+
+## Session Info
+- Started: YYYY-MM-DD HH:MM:SS
+- Iteration: 0
+- Status: NOT_STARTED
+
+## Import Verification
+- [ ] `python -c "import src"` passes
+- [ ] All modules have `__init__.py`
+
+## Blockers
+
+## Next Steps

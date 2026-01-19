@@ -1,0 +1,12 @@
+{
+  "agent": "architect",
+  "max_iterations": 50,
+  "timeout_seconds": 1800,
+  "success_marker": "<promise>ARCHITECTURE_LOCKED</promise>",
+  "failure_patterns": ["CONTEXT_POLLUTED", "HUMAN_REVIEW_REQUIRED"],
+  "prompt_file": "agent/prompts/architect_prompt.md",
+  "verification_commands": [
+    "test -f ARCHITECTURE.md",
+    "test -f src/core/interfaces.py"
+  ]
+}

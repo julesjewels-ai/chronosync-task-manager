@@ -1,0 +1,12 @@
+{
+  "agent": "mason",
+  "max_iterations": 50,
+  "timeout_seconds": 1800,
+  "success_marker": "<promise>SOLID_COMPLETE</promise>",
+  "failure_patterns": ["CONTEXT_POLLUTED"],
+  "prompt_file": "agent/prompts/mason_prompt.md",
+  "verification_commands": [
+    "pytest tests/ -v",
+    "pytest --cov=src/core --cov-fail-under=60"
+  ]
+}

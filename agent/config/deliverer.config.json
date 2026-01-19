@@ -1,0 +1,12 @@
+{
+  "agent": "deliverer",
+  "max_iterations": 30,
+  "timeout_seconds": 1200,
+  "success_marker": "<promise>READY_FOR_DEPLOYMENT</promise>",
+  "failure_patterns": ["CONTEXT_POLLUTED", "HUMAN_REVIEW_REQUIRED"],
+  "prompt_file": "agent/prompts/deliverer_prompt.md",
+  "verification_commands": [
+    "make lint",
+    "make test"
+  ]
+}
